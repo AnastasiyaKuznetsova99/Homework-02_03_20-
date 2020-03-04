@@ -11,7 +11,7 @@
 
 int main()
 {
-	std::vector<int> myVector(2000000, 12);
+	/*std::vector<int> myVector(8800000, 12);
 	myVector.reserve(40);
 	std::cout << "Vector size: " << myVector.size() << std::endl;
 	std::cout << "Vector capacity: " << myVector.capacity() << std::endl;
@@ -140,11 +140,25 @@ int main()
 	std::cout << "Vector capacity: " << myVector.capacity() << std::endl;
 	myVector.push_back(124);
 	std::cout << "Vector size: " << myVector.size() << std::endl;
-	std::cout << "Vector capacity: " << myVector.capacity() << std::endl;
+	std::cout << "Vector capacity: " << myVector.capacity() << std::endl;*/
 	/*for (int i = 0; i < myVector.size(); i++) 
 	{
 		std::cout << myVector[i] << std::endl;
 	}*/
 	//std::cout << "Vector capacity: " << myVector.capacity() << std::endl;
+	std::vector<int> myVector;
+	try 
+	{
+		for (size_t i = 0; i < std::numeric_limits<size_t>::max(); i++) 
+		{
+			myVector.push_back(0);
+		}
+
+	}
+	catch (std::bad_alloc& a) 
+	{
+		std::cout << a.what() << std::endl;
+	}
+	system("pause");
 	return 0;
 }
